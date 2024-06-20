@@ -1,0 +1,20 @@
+Projet ETL covid-19 sur AWS
+
+Debut
+- Récupération des données du covid19 sur le data lake public d'aws : https://dj2taa9i652rf.cloudfront.net
+- insertion des données dans ma base AWS S3
+- création de crawler pour intérroger la visualiser/interroger la données sur Athena AWS
+
+Dans le fichier covid.py
+- Connection à Athéna
+- Extraction des données / Tables
+- Correction / Transformation (suppresion / arrangement de ligne, formatage de dates) de la données
+- Création de nouvelles dataframes / insertions des données dans les dataframes
+- Convertion des dataframes en CSV puis insertion des fichier CSV dans la base S3 AWS
+
+Dans le fichier redshift.py
+- Connection à Redshift
+- Récupération des dataframes crée précédemment en format SQL (CREATE TABLE ...) à l'aide d'un print(pd.io.sql.get_schema(df),"nom")
+- Création des tables des dataframes dans RedShift
+- Extraction des données des CSV de S3 pour les charger dans les tables de Redshift
+Copier ce script dans un jobs sur Redshift pour l'automatiser
